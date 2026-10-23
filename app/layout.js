@@ -1,0 +1,1 @@
+import './style.css';export const metadata={title:'PeixotoXzx Auth',description:'Painel de licenças'};export default function RootLayout({children}){return <html lang="pt-BR"><body>{children}</body></html>}

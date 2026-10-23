@@ -1,0 +1,2 @@
+import {authorizePassword,hash,json} from '../../../lib/core';
+export async function POST(req){const body=await req.json().catch(()=>({})); if(!authorizePassword(body.password))return json({error:'Senha incorreta'},401); const stamp=String(Date.now()); const response=json({ok:true}); response.headers.append('Set-Cookie',`pxsession=${stamp}.${hash('admin:'+stamp)}; HttpOnly; Secure; SameSite=Strict; Path=/; Max-Age=86400`);return response;}
