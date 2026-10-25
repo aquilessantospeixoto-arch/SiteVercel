@@ -35,3 +35,17 @@ Resposta: `{ "valid": true, "expires_at": "..." }` ou `{ "valid": false }`.
 - Este projeto é uma base funcional inicial, não um serviço auditado de segurança.
 - A listagem do painel mostra as 500 keys mais recentes.
 - O plano gratuito dos provedores pode possuir cotas e limites próprios.
+
+
+## Recursos adicionais (v2)
+
+- Keys automáticas: `PXZX-Spoofer-Semanal-<24 caracteres hex>`; nomes disponíveis: Diaria, Semanal, Quinzenal, Mensal, Trimestral, Semestral, Anual e Lifetime.
+- Painel **Usuários e banimentos**: conta, total de licenças, última ativação, motivo do ban e desbanimento.
+- Tabela de licenças: nome de usuário, IP capturado na primeira ativação e data/hora da ativação.
+- Para associar usuário à primeira ativação, o cliente deve enviar `username` junto de `key` e `hwid` no POST `/api/redeem`. Exemplo: `{"key":"PXZX-Spoofer-Semanal-...", "hwid":"identificador-do-dispositivo", "username":"cliente123"}`. Se o cliente antigo omitir `username`, a ativação ainda funciona mas exibirá "Não informado" até a integração cliente ser atualizada.
+- O endpoint `/api/validate` invalida uma licença quando sua conta vinculada estiver banida.
+- O banco é atualizado automaticamente no primeiro acesso a uma rota que use `setup()`. Requer DATABASE_URL do Neon. Configure também SESSION_SECRET e ADMIN_PASSWORD na Vercel; faça redeploy após adicioná-las.
+
+### Privacidade e limitações
+
+O endereço IP é dado pessoal. Antes de coletá-lo, informe aos clientes finalidade, acesso restrito e período de retenção conforme a LGPD. Os IPs não são um identificador confiável de pessoa ou máquina; podem mudar e ser compartilhados. `username` é um identificador declarado pelo cliente, não uma identidade autenticada: para impedir usurpação de nomes em produção, implemente login seguro/autenticação de contas. O banimento baseado na conta vinculada às licenças impede validação, mas não substitui autenticação de usuário. Evite armazenar IP por tempo indefinido.
