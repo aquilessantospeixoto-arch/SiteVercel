@@ -49,3 +49,13 @@ Resposta: `{ "valid": true, "expires_at": "..." }` ou `{ "valid": false }`.
 ### Privacidade e limitações
 
 O endereço IP é dado pessoal. Antes de coletá-lo, informe aos clientes finalidade, acesso restrito e período de retenção conforme a LGPD. Os IPs não são um identificador confiável de pessoa ou máquina; podem mudar e ser compartilhados. `username` é um identificador declarado pelo cliente, não uma identidade autenticada: para impedir usurpação de nomes em produção, implemente login seguro/autenticação de contas. O banimento baseado na conta vinculada às licenças impede validação, mas não substitui autenticação de usuário. Evite armazenar IP por tempo indefinido.
+
+
+## Identidade visual preto e branco
+
+Esta versão usa a imagem fornecida pelo usuário em `public/logo-px.png`, exibida no login, página inicial e painel.
+O tema geral foi convertido para preto, branco e tons de cinza em `app/style.css`.
+As funcionalidades de autenticação, licenças e API não foram alteradas.
+
+Para atualizar um site já hospedado na Vercel, envie **estes arquivos atualizados** ao repositório/deploy do projeto.
+Apenas clicar em Redeploy sem atualizar os arquivos não aplicará o novo tema.
