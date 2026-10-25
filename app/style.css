@@ -36,3 +36,11 @@ footer{color:#999}
 .brand .px-logo{width:53px;height:45px}
 .avatar .px-logo{width:37px;height:32px}
 :focus-visible{outline:2px solid white;outline-offset:2px}
+
+
+/* Separate product workspaces, matching the monochrome dashboard. */
+.product-tabs{display:flex;gap:8px;padding:6px;background:#111;border:1px solid #3b3b3b;border-radius:12px;margin:28px 0 0;max-width:420px}
+.product-tabs button{flex:1;border:1px solid transparent;background:transparent;color:#aaa;border-radius:8px;padding:13px 22px;font-weight:700}
+.product-tabs button[aria-selected="true"]{background:#f5f5f5;color:#090909;border-color:#fff}
+.product-tabs button:hover:not([aria-selected="true"]){background:#292929;color:#fff}
+.product-tabs button:disabled{cursor:wait;opacity:.7}
